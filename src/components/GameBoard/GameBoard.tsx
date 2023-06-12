@@ -4,13 +4,13 @@ import { GameBoardProps, GameBoardSize } from "./types";
 import CardTile from "../CardTile";
 
 import style from './GameBoard.module.css'
-import coffeeImage from '../../assets/coffee.png'
 
-function generateTiles(tileCount: number) {
-    const tiles = [];
+function generateTiles(board: GameBoardProps) {
+    const tiles = []
+    const tileCount = getTileCount(board.size);
 
     for (let i = 0; i < tileCount; i++) {
-        tiles.push(<CardTile cardImage={coffeeImage} />)
+        tiles.push(<CardTile cardImage={board.tiles[i].cardImage} />)
     }
 
     return tiles;
@@ -29,13 +29,12 @@ function getTileCount(size: GameBoardSize) {
     }
 }
 
-const GameBoard: FC<GameBoardProps> = ({ size }) => {
-
-    const tiles = generateTiles(getTileCount(size))
+const GameBoard: FC<GameBoardProps> = (props) => {
+    const cardTiles = generateTiles(props)
 
     return (
-        <section className={style.gameBoard + ' ' + style[size]}>
-            {tiles}
+        <section className={style.gameBoard + ' ' + style[props.size]}>
+            {cardTiles}
         </section>
     )
 }
