@@ -1,0 +1,61 @@
+.game-board {
+    --columns: 0;
+    --rows: 0;
+    --size: minmax(96px, 120px);
+
+    display: grid;
+
+    justify-content: center;
+    align-items: center;
+
+    grid-template-columns: repeat(var(--columns), var(--size));
+    grid-template-rows: repeat(var(--rows), var(--size));
+    
+    height: 100%;
+    width: 100%;
+
+    gap: 5px;
+}
+
+.game-board>* {
+    display: block;
+}
+
+.small {
+    --columns: 3;
+    --rows: 2;
+}
+
+.medium {
+    --columns: 4;
+    --rows: 3;
+}
+
+.large {
+    --columns: 6;
+    --rows: 4;
+}
+
+@media (orientation: portrait) {
+    .medium {
+        --columns: 3;
+        --rows: 4;
+    }
+
+    .large {
+        --columns: 4;
+        --rows: 6;
+    }
+}
+
+@media 
+    (max-width: 450px) and (orientation: portrait), 
+    (max-height: 450px) and (orientation: landscape) {
+    .medium {
+        --size: 94px;
+    }
+
+    .large {
+        --size: 68px;
+    }
+}
