@@ -1,10 +1,9 @@
-import { CardTileProps } from "../CardTile/types"
-
 type GameBoardSize = 'small' | 'medium' | 'large'
 
 interface GameBoardProps {
-    tiles: CardTileProps[]
-    size: GameBoardSize
+    size: GameBoardSize,
+    tiles: { cardImage: string, show: boolean }[],
+    onMove?: (cardId: number) => void
 }
 
 export type {
