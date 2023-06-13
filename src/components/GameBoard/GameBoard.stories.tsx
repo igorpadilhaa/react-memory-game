@@ -12,23 +12,20 @@ export default meta;
 
 type Story = StoryObj<typeof GameBoard>
 
-export const Small: Story = {
-    args: {
-        size: "small",
-        tiles: Array<CardTileProps>(6).fill({ cardImage: coffeeImage })
-    }
-}
-
-export const Medium: Story = {
-    args: {
-        size: "medium",
-        tiles: Array<CardTileProps>(12).fill({ cardImage: coffeeImage })
-    }
-}
-
-export const Large: Story = {
+export const Normal: Story = {
     args: {
         size: "large",
-        tiles: Array<CardTileProps>(24).fill({ cardImage: coffeeImage })
+        tiles: Array<CardTileProps>(24).fill({ 
+            cardImage: coffeeImage, 
+            show: true,
+            onClick: () => alert('Tile clicked')
+        })
+    }
+}
+
+export const Flipped: Story = {
+    args: {
+        ...Normal.args,
+        tiles: Normal.args?.tiles?.map(tile => Object.assign(tile, { show: true }))
     }
 }

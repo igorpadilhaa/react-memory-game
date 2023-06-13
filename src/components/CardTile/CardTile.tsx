@@ -4,10 +4,10 @@ import type { CardTileProps } from "./types";
 
 import css from './CardTile.module.css'
 
-const CardTile: FC<CardTileProps> = ({ cardImage, backgroundColor, borderColor }) => {
+const CardTile: FC<CardTileProps> = ({ cardImage, backgroundColor, borderColor, show, onClick }) => {
     return (
-        <article className={css.cardTile} style={{ backgroundColor, borderColor }}>
-            <Card image={cardImage}/>
+        <article className={css.cardTile} style={{ backgroundColor, borderColor }} onClick={onClick}>
+            {show && <Card image={cardImage}/>}
         </article>
     )
 }

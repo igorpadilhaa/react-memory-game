@@ -34,8 +34,16 @@ export default meta;
 
 type Story = StoryObj<typeof CardTile>
 
-export const Primary: Story = {
+export const Normal: Story = {
     args: {
-        cardImage: coffeeImage
+        cardImage: coffeeImage,
+        show: true
+    }
+}
+
+export const OnClick: Story = {
+    args: {
+        ...Normal.args,
+        onClick: () => alert('Click event handler invoked')
     }
 }
