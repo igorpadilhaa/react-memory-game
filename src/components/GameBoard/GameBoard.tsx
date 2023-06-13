@@ -10,7 +10,7 @@ function generateTiles(board: GameBoardProps) {
     const tileCount = getTileCount(board.size);
 
     for (let i = 0; i < tileCount; i++) {
-        tiles.push(<CardTile cardImage={board.tiles[i].cardImage} />)
+        tiles.push(<CardTile {...board.tiles[i]} />)
     }
 
     return tiles;
