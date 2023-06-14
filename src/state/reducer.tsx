@@ -10,6 +10,8 @@ interface GameSelectCardEvent {
 
 type GameEvent = GameSelectCardEvent
 
+const initialState = newGame(BoardSize.MEDIUM);
+
 const reducer: Reducer<Game, GameEvent> = (prevState, action) => {
     console.log(`event ${action.type} triggered`)
     const newState: Game = {
@@ -30,7 +32,7 @@ const reducer: Reducer<Game, GameEvent> = (prevState, action) => {
 }
 
 function useGameReducer() {
-    return useReducer(reducer, newGame(BoardSize.MEDIUM))
+    return useReducer(reducer, initialState)
 }
 
 export default useGameReducer
