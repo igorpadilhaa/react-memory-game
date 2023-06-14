@@ -1,5 +1,5 @@
 import { Reducer, useReducer } from "react"
-import { BoardSize, Game, newGame, selectCard } from "../api/game"
+import { BoardSize, Game, makeMove, newGame, selectCard } from "../api/game"
 
 interface GameSelectCardEvent {
     type: 'game/selectCard',
@@ -8,15 +8,19 @@ interface GameSelectCardEvent {
     }
 }
 
-type GameEvent = GameSelectCardEvent
+interface GameMoveEvent {
+    type: 'game/move'
+}
+
+type GameEvent = GameSelectCardEvent | GameMoveEvent
 
 const initialState = newGame(BoardSize.MEDIUM);
 
-const reducer: Reducer<Game, GameEvent> = (prevState, action) => {
+const reducer: Reducer<Game, GameEvent> = (currentState, action) => {
     console.log(`event ${action.type} triggered`)
     const newState: Game = {
-        selectedCards: [...prevState.selectedCards],
-        board: [...prevState.board]
+        selectedCards: [...currentState.selectedCards],
+        board: [...currentState.board]
     }
 
     switch(action.type) {
@@ -24,8 +28,12 @@ const reducer: Reducer<Game, GameEvent> = (prevState, action) => {
         selectCard(action.payload.card, newState)
         break;
 
+    case 'game/move':
+        makeMove(newState)
+        break;
+
     default:
-        return prevState
+        return currentState
     }
 
     return newState
