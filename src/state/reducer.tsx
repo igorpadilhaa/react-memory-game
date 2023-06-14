@@ -1,13 +1,32 @@
 import { Reducer, useReducer } from "react"
-import { BoardSize, Game, newGame } from "../api/game"
+import { BoardSize, Game, newGame, selectCard } from "../api/game"
 
-type GameEvent = {
-    type: string
+interface GameSelectCardEvent {
+    type: 'game/selectCard',
+    payload: { 
+        card: number
+    }
 }
+
+type GameEvent = GameSelectCardEvent
 
 const reducer: Reducer<Game, GameEvent> = (prevState, action) => {
     console.log(`event ${action.type} triggered`)
-    return prevState
+    const newState: Game = {
+        selectedCards: [...prevState.selectedCards],
+        board: [...prevState.board]
+    }
+
+    switch(action.type) {
+    case 'game/selectCard':
+        selectCard(action.payload.card, newState)
+        break;
+
+    default:
+        return prevState
+    }
+
+    return newState
 }
 
 function useGameReducer() {

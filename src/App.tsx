@@ -1,5 +1,3 @@
-import { useEffect } from "react"
-
 import GameBoard from "./components/GameBoard"
 
 import style from './App.module.css'
@@ -8,15 +6,18 @@ import useGameReducer from "./state/reducer"
 function App() {
   const [game, dispatch] = useGameReducer()
 
-  useEffect(() => {
-    dispatch({ type: 'app mounted!' })
-  }, [dispatch])
+  const move = (card: number) => {
+    dispatch({
+      type: 'game/selectCard',
+      payload: { card }
+    })
+  }
 
   return (
     <main className={style.mainContent}>
       <h1 className={style.title}>Wow a memory game! :D</h1>
       <section className="board">
-        <GameBoard size="large" tiles={game.board.map(c => ({ cardImage: c.image, show: c.flipped}))} onMove={() => dispatch({ type: 'move made'})} />
+        <GameBoard size="medium" tiles={game.board.map(c => ({ cardImage: c.image, show: c.flipped}))} onMove={move} />
       </section>
     </main>
   )
