@@ -34,10 +34,12 @@ describe('makeMove test suite', () => {
 
     beforeEach(() => {
         game = {
+            status: 'ongoing',
             selectedCards: [],
             board: [
                 { image: 'image', flipped: false },
                 { image: 'image', flipped: false },
+                { image: 'another image', flipped: false},
                 { image: 'another image', flipped: false}
             ]
         }
@@ -65,5 +67,19 @@ describe('makeMove test suite', () => {
         assert.isFalse(game.board[2].flipped)
 
         assert.isEmpty(game.selectedCards)
+    })
+
+    it('should update game status to ended on game finish', () => {
+        selectCard(0, game)
+        selectCard(1, game)
+        makeMove(game)
+
+        expect(game.status).to.be.equals('ongoing')
+
+        selectCard(2, game)
+        selectCard(3, game)
+        makeMove(game)
+
+        expect(game.status).to.be.equals('ended')
     })
 })

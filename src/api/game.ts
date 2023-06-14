@@ -1,6 +1,7 @@
 import { randomImages } from './images'
 
 interface Game {
+    status: GameStatus
     selectedCards: number[]
     board: Card[]
 }
@@ -10,6 +11,8 @@ enum BoardSize {
     MEDIUM = 12,
     LARGE = 24,
 }
+
+type GameStatus = 'ended' | 'ongoing'
 
 class Card {
     constructor(
@@ -24,7 +27,8 @@ function newGame(size: BoardSize): Game {
     for (let i = 0; i < size; i++)
         board[i] = new Card(images[i], false)
 
-    return { 
+    return {
+        status: 'ongoing',
         selectedCards: [],
         board
     }
@@ -79,6 +83,17 @@ function makeMove(game: Game) {
     card2.flipped = evaluation
 
     game.selectedCards = []
+
+    game.status = calculateGameStatus(game.board)
+}
+
+function calculateGameStatus(board: Card[]): GameStatus {
+    for (const card of board) {
+        if (!card.flipped)
+            return 'ongoing'
+    }
+
+    return 'ended'
 }
 
 export type {

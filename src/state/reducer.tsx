@@ -19,6 +19,7 @@ const initialState = newGame(BoardSize.MEDIUM);
 const reducer: Reducer<Game, GameEvent> = (currentState, action) => {
     console.log(`event ${action.type} triggered`)
     const newState: Game = {
+        status: currentState.status,
         selectedCards: [...currentState.selectedCards],
         board: currentState.board.map(c => Object.assign({}, c))
     }
