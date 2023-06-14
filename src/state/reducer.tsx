@@ -1,17 +1,17 @@
 import { Reducer, useReducer } from "react"
-import { Game } from "../api/game"
+import { BoardSize, Game, newGame } from "../api/game"
 
 type GameEvent = {
     type: string
 }
 
-const reducer: Reducer<Game | null, GameEvent> = (prevState, action) => {
+const reducer: Reducer<Game, GameEvent> = (prevState, action) => {
     console.log(`event ${action.type} triggered`)
     return prevState
 }
 
 function useGameReducer() {
-    return useReducer(reducer, null)
+    return useReducer(reducer, newGame(BoardSize.MEDIUM))
 }
 
 export default useGameReducer
