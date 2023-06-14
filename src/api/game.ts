@@ -1,6 +1,7 @@
 import coffeeImage from '../assets/coffee.png'
 
 interface Game {
+    selectedCards: number[]
     board: Card[]
 }
 
@@ -22,10 +23,19 @@ function newGame(size: BoardSize): Game {
     for (let i = 0; i < size; i++)
         board[i] = new Card(coffeeImage, false);
 
-    return { board }
+    return { 
+        selectedCards: [],
+        board
+    }
+}
+
+function selectCard(card: number, game: Game) {
+    game.selectedCards.push(card)
+    game.board[card].flipped = true
 }
 
 export {
     BoardSize,
-    newGame
+    newGame,
+    selectCard
 }
