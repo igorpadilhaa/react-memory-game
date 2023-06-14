@@ -2,15 +2,18 @@ import { assert, beforeEach, describe, expect, it } from "vitest";
 
 import { BoardSize, Game, makeMove, newGame, selectCard } from '../src/api/game'
 
-it('should generate board tiles', () => {
-    const game = newGame(BoardSize.LITTLE)
+let game: Game
 
+beforeEach(() => {
+    game = newGame(BoardSize.LITTLE)
+})
+
+it('should generate board tiles', () => {
     expect(game.board).to.have.length(BoardSize.LITTLE)
 })
 
 it('should flip a card and add it to selected list when selected', () => {
     const cardToSelect = 0;
-    const game = newGame(BoardSize.LITTLE)
 
     selectCard(0, game)
 
@@ -19,8 +22,6 @@ it('should flip a card and add it to selected list when selected', () => {
 })
 
 it('should prevent an attempt to flip a card that is already flipped', () => {
-    const game = newGame(BoardSize.LITTLE)
-
     selectCard(0, game)
     selectCard(0, game)
 
