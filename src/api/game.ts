@@ -62,6 +62,9 @@ function shuffle<T>(array: T[]): T[] {
 }
 
 function selectCard(card: number, game: Game) {
+    if (game.board[card].flipped)
+        return
+
     game.selectedCards.push(card)
     game.board[card].flipped = true
 }

@@ -18,6 +18,16 @@ it('should flip a card and add it to selected list when selected', () => {
     assert(game.board[cardToSelect].flipped)
 })
 
+it('should prevent an attempt to flip a card that is already flipped', () => {
+    const game = newGame(BoardSize.LITTLE)
+
+    selectCard(0, game)
+    selectCard(0, game)
+
+    expect(game.selectedCards).to.have.lengthOf(1)
+    assert(game.board[0].flipped)
+})
+
 describe('makeMove test suite', () => {
     let game: Game;
 

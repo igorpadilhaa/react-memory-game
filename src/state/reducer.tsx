@@ -20,7 +20,7 @@ const reducer: Reducer<Game, GameEvent> = (currentState, action) => {
     console.log(`event ${action.type} triggered`)
     const newState: Game = {
         selectedCards: [...currentState.selectedCards],
-        board: [...currentState.board]
+        board: currentState.board.map(c => Object.assign({}, c))
     }
 
     switch(action.type) {
@@ -35,6 +35,11 @@ const reducer: Reducer<Game, GameEvent> = (currentState, action) => {
     default:
         return currentState
     }
+
+    console.dir({
+        old: currentState,
+        new: newState
+    })
 
     return newState
 }
