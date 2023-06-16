@@ -3,6 +3,7 @@ import GameBoard from "./components/GameBoard"
 import style from './App.module.css'
 import useGameReducer from "./state/reducer"
 import { useEffect } from "react"
+import GameControls from "./components/GameControls/GameControls"
 
 function App() {
   const [game, dispatch] = useGameReducer()
@@ -25,10 +26,9 @@ function App() {
 
   return (
     <main className={style.mainContent}>
-      <h1 className={style.title}>Wow a memory game! :D</h1>
-      <section className="board">
-        <GameBoard size="medium" tiles={game.board.map(c => ({ cardImage: c.image, show: c.flipped}))} onMove={selectCard} />
-      </section>
+      <GameControls title="Wow a memory game! :D">
+        <GameBoard size="medium" tiles={game.board.map(c => ({ cardImage: c.image, show: c.flipped }))} onMove={selectCard} />
+      </GameControls>
     </main>
   )
 }
