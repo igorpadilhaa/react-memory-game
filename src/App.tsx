@@ -22,14 +22,12 @@ function App() {
     return () => clearTimeout(timeout)
   }, [game.selectedCards, dispatch])
 
-  const controls: Control[] = []
-
-  if (game.status == 'ongoing') {
-    controls.push({ 
+  const controls: Control[] = [
+    {
       image: restartIcon,
       action: () => dispatch(newGame(12))
-    })
-  }
+    }
+  ]
 
   return (
     <main className={style.mainContent}>
