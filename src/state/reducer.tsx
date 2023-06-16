@@ -12,7 +12,14 @@ interface GameMoveEvent {
     type: 'game/move'
 }
 
-type GameEvent = GameSelectCardEvent | GameMoveEvent
+interface GameNewEvent {
+    type: 'game/new',
+    payload: {
+        size: number
+    }
+}
+
+type GameEvent = GameSelectCardEvent | GameMoveEvent | GameNewEvent
 
 const initialState = newGame(BoardSize.MEDIUM);
 
@@ -32,6 +39,9 @@ const reducer: Reducer<Game, GameEvent> = (currentState, action) => {
     case 'game/move':
         makeMove(newState)
         break;
+
+    case 'game/new':
+        return newGame(action.payload.size)
 
     default:
         return currentState
