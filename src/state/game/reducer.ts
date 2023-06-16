@@ -1,25 +1,6 @@
 import { Reducer, useReducer } from "react"
-import { BoardSize, Game, makeMove, newGame, selectCard } from "../api/game"
-
-interface GameSelectCardEvent {
-    type: 'game/selectCard',
-    payload: { 
-        card: number
-    }
-}
-
-interface GameMoveEvent {
-    type: 'game/move'
-}
-
-interface GameNewEvent {
-    type: 'game/new',
-    payload: {
-        size: number
-    }
-}
-
-type GameEvent = GameSelectCardEvent | GameMoveEvent | GameNewEvent
+import { BoardSize, Game, makeMove, newGame, selectCard } from "../../api/game"
+import { GameEvent } from "./types";
 
 const initialState = newGame(BoardSize.MEDIUM);
 

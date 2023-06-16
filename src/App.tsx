@@ -1,8 +1,9 @@
 import GameBoard from "./components/GameBoard"
 
 import style from './App.module.css'
-import useGameReducer from "./state/reducer"
 import { useEffect } from "react"
+
+import { useGameReducer } from "./state/game"
 
 import GameControls from "./components/GameControls/GameControls"
 import { Control } from "./components/GameControls/types"
@@ -30,7 +31,7 @@ function App() {
 
   const controls: Control[] = []
 
-  if (game.status == 'ended') {
+  if (game.status == 'ongoing') {
     controls.push({ 
       image: restartIcon,
       action: () => dispatch({ type: 'game/new', payload: { size: 12 } })
