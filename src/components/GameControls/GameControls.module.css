@@ -1,0 +1,74 @@
+.controls-container {
+    display: grid;
+
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: 30px 1fr 30px;
+
+    grid-template-areas:
+        ".  hd hd ."
+        ".  bd bd ct"
+        ".  .  .  .";
+
+    gap: 15px;
+
+    justify-content: stretch;
+}
+
+.head {
+    grid-area: hd;
+
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.center {
+    grid-area: bd;
+}
+
+.controls {
+    grid-area: ct;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    justify-content: start;
+    align-items: start;
+
+    gap: 5px;
+}
+
+.control {
+    display: block;
+
+    padding: 5px 10px;
+    background-color: inherit;
+
+    text-align: center;
+    text-overflow: ellipsis;
+
+    font-size: 1em;
+
+    max-width: 80px;
+    max-height: 50px;
+
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+.control img {
+    display: block;
+    object-fit: scale-down;
+    max-width: 30px;
+    max-height: 30px;
+}
+
+@media (min-width: 300px) and (orientation: portrait) {
+    .controls-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 30px 1fr 30px;
+
+        grid-template-areas: 'hd' 'bd' 'ct';
+    }
+}
