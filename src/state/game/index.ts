@@ -1,5 +1,9 @@
 import useGameReducer from "./reducer"
+import { newGame, selectCard, move } from "./action"
 
 export {
-    useGameReducer
+    useGameReducer,
+    newGame,
+    selectCard,
+    move
 }
