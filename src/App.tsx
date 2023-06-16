@@ -34,7 +34,7 @@ function App() {
   return (
     <main className={style.mainContent}>
       <GameControls title="Wow a memory game! :D" controls={controls}>
-        <GameBoard size="medium" tiles={game.board.map(c => ({ cardImage: c.image, show: c.flipped }))} onMove={(card) => dispatch(selectCard(card))} />
+        <GameBoard tiles={game.board} onMove={(card) => dispatch(selectCard(card))} />
       </GameControls>
     </main>
   )

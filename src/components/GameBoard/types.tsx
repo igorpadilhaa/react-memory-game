@@ -1,12 +1,8 @@
-type GameBoardSize = 'small' | 'medium' | 'large'
-
 interface GameBoardProps {
-    size: GameBoardSize,
-    tiles: { cardImage: string, show: boolean }[],
+    tiles: { image: string, flipped: boolean}[],
     onMove?: (cardId: number) => void
 }
 
 export type {
-    GameBoardProps,
-    GameBoardSize
+    GameBoardProps
 }

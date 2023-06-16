@@ -11,27 +11,28 @@ export default meta;
 
 type Story = StoryObj<typeof GameBoard>
 
+function tiles(count: number, flipped = false) {
+    return Array(count).fill({
+        image: coffeeImage,
+        flipped
+    })
+}
+
 export const Normal: Story = {
     args: {
-        size: "large",
-        tiles: Array(24).fill({ 
-            cardImage: coffeeImage, 
-            show: true,
-            onClick: () => alert('Tile clicked')
-        })
+        tiles: tiles(6)
     }
 }
 
 export const Flipped: Story = {
     args: {
-        ...Normal.args,
-        tiles: Normal.args?.tiles?.map(tile => Object.assign(tile, { show: true }))
+        tiles: tiles(12, true)
     }
 }
 
 export const OnMove: Story = {
     args: {
-        ...Flipped.args,
+        tiles: tiles(24, false),
         onMove: (cardId) => alert(`Card ${cardId} was clicked!`)
     }
 }
