@@ -20,12 +20,6 @@ const meta: Meta<typeof CardTile> = {
     argTypes: {
         cardImage: {
             type: 'string'
-        },
-        backgroundColor: {
-            type: 'string'
-        },
-        borderColor: {
-            type: 'string'
         }
     }
 }
