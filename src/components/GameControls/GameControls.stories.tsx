@@ -18,7 +18,7 @@ type Story = StoryObj<typeof GameControls>
 export const Basic: Story = {
     args: {
         title: 'Game controls title',
-        children: <GameBoard size="medium" tiles={game.board.map(c => ({ cardImage: c.image, show: c.flipped}))}/>
+        children: <GameBoard tiles={game.board} />
     }
 }
 
