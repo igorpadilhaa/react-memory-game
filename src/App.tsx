@@ -9,9 +9,13 @@ import GameControls from "./components/GameControls/GameControls"
 import { Control } from "./components/GameControls/types"
 
 import restartIcon from './assets/restart.png'
+import useConfigForm from "./components/GameConfigForm/useConfigForm"
 
 function App() {
   const [game, dispatch] = useGameReducer()
+  const { Form, show } = useConfigForm()
+
+  useEffect(show, [show])
 
   useEffect(() => {
     if (game.selectedCards.length !== 2)
@@ -34,6 +38,7 @@ function App() {
       <GameControls title="Wow a memory game! :D" controls={controls}>
         <GameBoard tiles={game.board} onMove={(card) => dispatch(selectCard(card))} />
       </GameControls>
+      <Form />
     </main>
   )
 }
