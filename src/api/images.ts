@@ -1,19 +1,29 @@
 import bread from '../assets/cards/bread.png'
 import coffee from '../assets/cards/coffee.png'
 import croissant from '../assets/cards/croissant.png'
+import cupcake from '../assets/cards/cupcake.png'
 import fries from '../assets/cards/fries.png'
+import iceCream from '../assets/cards/ice-cream.png'
+import milk from '../assets/cards/milk.png'
 import noodles from '../assets/cards/noodles.png'
 import pizza from '../assets/cards/pizza.png'
 import pumpkin from '../assets/cards/pumpkin.png'
+import sushi from '../assets/cards/sushi.png'
+import taco from '../assets/cards/taco.png'
 
 const images = {
     bread,
     coffee,
     croissant,
+    cupcake,
     fries,
+    iceCream,
+    milk,
     noodles,
     pizza,
-    pumpkin
+    pumpkin,
+    sushi,
+    taco
 }
 
 const imageList = Object.values(images)
