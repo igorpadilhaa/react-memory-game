@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import Card from './Card'
 
-import coffeImage from '../../assets/coffee.png'
+import images from '../../api/images'
 
 const meta: Meta<typeof Card> = {
     component: Card,
@@ -23,6 +23,6 @@ type Story = StoryObj<typeof Card>
 
 export const Primary: Story = {
     args: {
-        image: coffeImage
+        image: images.coffee
     }
 }

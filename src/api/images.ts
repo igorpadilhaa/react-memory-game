@@ -1,10 +1,10 @@
-import bread from '../assets/bread.png'
-import coffee from '../assets/coffee.png'
-import croissant from '../assets/croissant.png'
-import fries from '../assets/fries.png'
-import noodles from '../assets/noodles.png'
-import pizza from '../assets/pizza.png'
-import pumpkin from '../assets/pumpkin.png'
+import bread from '../assets/cards/bread.png'
+import coffee from '../assets/cards/coffee.png'
+import croissant from '../assets/cards/croissant.png'
+import fries from '../assets/cards/fries.png'
+import noodles from '../assets/cards/noodles.png'
+import pizza from '../assets/cards/pizza.png'
+import pumpkin from '../assets/cards/pumpkin.png'
 
 const images = {
     bread,

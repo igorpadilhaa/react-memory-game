@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import GameBoard from "./GameBoard";
 
-import coffeeImage from '../../assets/coffee.png'
+import images from '../../api/images'
 
 const meta: Meta<typeof GameBoard> = {
     component: GameBoard
@@ -13,7 +13,7 @@ type Story = StoryObj<typeof GameBoard>
 
 function tiles(count: number, flipped = false) {
     return Array(count).fill({
-        image: coffeeImage,
+        image: images.coffee,
         flipped
     })
 }

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import CardTile from "./CardTile";
 
-import coffeeImage from '../../assets/coffee.png'
+import images from '../../api/images'
 
 const meta: Meta<typeof CardTile> = {
     component: CardTile,
@@ -36,7 +36,7 @@ type Story = StoryObj<typeof CardTile>
 
 export const Normal: Story = {
     args: {
-        cardImage: coffeeImage,
+        cardImage: images.coffee,
         show: true
     }
 }
