@@ -13,7 +13,15 @@ import useConfigForm from "./components/GameConfigForm/useConfigForm"
 
 function App() {
   const [game, dispatch] = useGameReducer()
-  const { Form, show } = useConfigForm()
+  const { Form, show } = useConfigForm({
+    onSubmit: (config) => {
+      const newSize = config.boardSize
+      if (!newSize || game.board.length == newSize)
+        return
+
+      dispatch(newGame(newSize))
+    }
+  })
 
   useEffect(show, [show])
 
@@ -29,7 +37,7 @@ function App() {
   const controls: Control[] = [
     {
       image: restartIcon,
-      action: () => dispatch(newGame(12))
+      action: () => dispatch(newGame(game.board.length))
     }
   ]
 
