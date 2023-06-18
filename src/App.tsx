@@ -8,6 +8,7 @@ import { move, newGame, selectCard, useGameReducer } from "./state/game"
 import GameControls from "./components/GameControls/GameControls"
 import { Control } from "./components/GameControls/types"
 
+import { BoardSize } from "./api/game"
 import useConfigForm from "./components/GameConfigForm/useConfigForm"
 
 import restartIcon from './assets/restart.png'
@@ -22,7 +23,8 @@ function App() {
         return
 
       dispatch(newGame(newSize))
-    }
+    },
+    boardSize: game.board.length as BoardSize
   })
 
   useEffect(show, [show])
