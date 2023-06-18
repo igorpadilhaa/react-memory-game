@@ -37,6 +37,8 @@ jobs:
       
     - name: Build artifact
       run: npm run build
+      env:
+        VITE_BASE: /react-memory-game
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v1
