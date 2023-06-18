@@ -1,0 +1,34 @@
+#main-content {
+    margin: auto;
+    max-width: 700px;
+
+    padding: 10px 20px;
+}
+
+#main-content > p {
+    text-align: justify;
+}
+
+.assets-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 150px);
+    grid-auto-rows: auto;
+
+    list-style-type: none;
+    padding: 0;
+
+    gap: 20px;
+}
+
+.assets-list > * {
+    min-width: 100px;
+}
+
+.assets-list img {
+    display: block;
+    border: 1px solid black;
+
+    margin-bottom: 10px;
+
+    object-fit: contain;
+}
