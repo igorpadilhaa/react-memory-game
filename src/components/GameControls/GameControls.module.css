@@ -30,7 +30,7 @@
     grid-area: ct;
 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
 
     justify-content: start;
@@ -70,5 +70,9 @@
         grid-template-rows: 30px 1fr 30px;
 
         grid-template-areas: 'hd' 'bd' 'ct';
+    }
+
+    .controls {
+        flex-direction: row;
     }
 }

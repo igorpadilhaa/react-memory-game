@@ -8,8 +8,10 @@ import { move, newGame, selectCard, useGameReducer } from "./state/game"
 import GameControls from "./components/GameControls/GameControls"
 import { Control } from "./components/GameControls/types"
 
-import restartIcon from './assets/restart.png'
 import useConfigForm from "./components/GameConfigForm/useConfigForm"
+
+import restartIcon from './assets/restart.png'
+import settingsIcon from './assets/settings.png'
 
 function App() {
   const [game, dispatch] = useGameReducer()
@@ -38,6 +40,10 @@ function App() {
     {
       image: restartIcon,
       action: () => dispatch(newGame(game.board.length))
+    },
+    {
+      image: settingsIcon,
+      action: show
     }
   ]
 
