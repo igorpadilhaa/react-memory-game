@@ -49,7 +49,7 @@ function randomImages(count: number): string[] {
 }
 
 function randomNumber(limit: number) {
-    const generated = Math.random() * (limit + 1);
+    const generated = Math.random() * (limit);
 
     return Math.floor(generated)
 }
