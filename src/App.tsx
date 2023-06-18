@@ -1,6 +1,5 @@
 import GameBoard from "./components/GameBoard"
 
-import style from './App.module.css'
 import { useEffect } from "react"
 
 import { move, newGame, selectCard, useGameReducer } from "./state/game"
@@ -13,6 +12,9 @@ import useConfigForm from "./components/GameConfigForm/useConfigForm"
 
 import restartIcon from './assets/restart.png'
 import settingsIcon from './assets/settings.png'
+import { Link } from "react-router-dom"
+
+import style from './App.module.css'
 
 function App() {
   const [game, dispatch] = useGameReducer()
@@ -55,6 +57,11 @@ function App() {
         <GameBoard tiles={game.board} onMove={(card) => dispatch(selectCard(card))} />
       </GameControls>
       <Form />
+
+      <footer>
+        <span>Icons provided by <Link to="https://icons8.com">Icons8</Link></span>
+        <Link to="/about">About</Link>
+      </footer>
     </main>
   )
 }

@@ -6,7 +6,7 @@ import play from './assets/play.png'
 import settings from './assets/settings.png'
 
 import style from './About.module.css'
-import { NavLink } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 function ImageAssetItem(props: { image: string, url: string, originName: string, sourceName: string }) {
     return (
@@ -34,9 +34,9 @@ const About: FC = () => {
                 The source code is available <a target="_blank" href="https://github.com/igorpadilhaa/react-memory-game">here</a>
             </p>
 
-            <NavLink to="/">Play game</NavLink>
+            <Link to="/">Play game</Link>
 
-            <h2>Assets</h2>
+            <h2 id="credits">Assets</h2>
             <p>This project used third-party assets, follow a list of each one and their source</p>
 
             <ul className={style.assetsList}>
