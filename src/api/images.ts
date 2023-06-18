@@ -35,7 +35,7 @@ function randomImages(count: number): string[] {
     const result: string[] = []
 
     while (count > 0) {
-        const index = randomNumber(count)
+        const index = randomNumber(remainingImages.length)
 
         console.log(`index ${index}, count ${count}, size ${remainingImages.length}`)
 
