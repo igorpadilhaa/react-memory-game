@@ -29,12 +29,14 @@ const About: FC = () => {
         <main id={style.mainContent}>
             <h1>About the project</h1>
             <p>
-                This game was a one month project, a study of how to use Storybook
-                and explore some responsive layout ideias. 
-                The source code is available <a target="_blank" href="https://github.com/igorpadilhaa/react-memory-game">here</a>
+                This memory game was a one month project, it intended to be simple and
+                capable to run in any device.
             </p>
-
-            <Link to="/">Play game</Link>
+            <p>        
+                The game can be played <Link to="/">here</Link>. 
+                The source code is on <a target="_blank" href="https://github.com/igorpadilhaa/react-memory-game">Github</a>
+            </p>    
+            
 
             <h2 id="credits">Assets</h2>
             <p>This project used third-party assets, follow a list of each one and their source</p>
