@@ -18,6 +18,8 @@ import style from './App.module.css'
 
 function App() {
   const [game, dispatch] = useGameReducer()
+  const readyToMakeMove = game.selectedCards.length >= 2;
+
   const { Form, show } = useConfigForm({
     onSubmit: (config) => {
       const newSize = config.boardSize
@@ -51,10 +53,15 @@ function App() {
     }
   ]
 
+  const onMove = (card: number) => {
+    if (!readyToMakeMove)
+      dispatch(selectCard(card))
+  }
+
   return (
     <main className={style.mainContent}>
       <GameControls title="Wow a memory game! :D" controls={controls}>
-        <GameBoard tiles={game.board} onMove={(card) => dispatch(selectCard(card))} />
+        <GameBoard tiles={game.board} onMove={onMove} />
       </GameControls>
       <Form />
 
