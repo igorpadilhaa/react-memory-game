@@ -66,7 +66,7 @@ function App() {
       <Form />
 
       <footer>
-        <span>Icons provided by <Link to="https://icons8.com">Icons8</Link></span>
+        <span>Icons provided by <Link target="_blank" to="https://icons8.com">Icons8</Link></span>
         <Link to="/about">About</Link>
       </footer>
     </main>
